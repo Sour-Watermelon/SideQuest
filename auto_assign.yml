@@ -1,0 +1,12 @@
+addReviewers: true
+addAssignees: true
+
+reviewers:
+  - Sour-Watermelon/Slice   # 👈 Your GitHub team
+
+assignees:
+  - Rgjmerc
+  - GummmyRice1
+
+numberOfReviewers: 1
+numberOfAssignees: 1
