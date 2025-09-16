@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public float jump;
 
+    public bool doublejump;
     public Rigidbody2D body;
 
     public Vector2 boxSize;
@@ -27,10 +28,16 @@ public class PlayerMovement : MonoBehaviour
         {
             body.linearVelocity = new Vector2(xInput * speed, body.linearVelocity.y);
         }
-        if (Input.GetButtonDown("Jump") && isGrounded())
+        if(Input.GetButtonDown("Jump"))
         {
-            body.AddForce(new Vector2(body.linearVelocity.x, jump));
+            if(isGrounded() || doublejump)
+            {
+                body.linearVelocity = new Vector2(body.linearVelocity.x, jump);
+
+                doublejump = !doublejump;
+            }
         }
+
     }
 
     public bool isGrounded()
